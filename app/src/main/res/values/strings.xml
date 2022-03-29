@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Kalkulator Zakat Emas</string>
+    <string name="selamatdatang">Selamat Datang di Kalkulator Zakat Emas</string>
+    <string name="intro">Kalkulator zakat emas dapat membantu seorang muslim dalam menghitung berapa uang rupiah yang harus dikeluarkan untuk zakat pertahunnya</string>
+    <string name="beratEmas">Masukan Berat Emas (gram)</string>
+    <string name="hitung">Hitung</string>
+    <string name="reset">Reset</string>
+    <string name="validasi_berat">Berat tidak boleh kosong</string>
+    <string name="hasilZakat1">Jumlah rupiah yang harus dikeluarkan adalah : %1$s</string>
+</resources>
