@@ -7,4 +7,8 @@
     <string name="reset">Reset</string>
     <string name="validasi_berat">Berat tidak boleh kosong</string>
     <string name="hasilZakat1">Jumlah rupiah yang harus dikeluarkan adalah : %1$s</string>
+    <string name="header">Apa itu zakat?</string>
+    <string name="about">Zakat adalah bagian tertentu dari harta yang wajib dikeluarkan oleh setiap muslim apabila telah mencapai syarat yang ditetapkan.Sebagai salah satu rukun Islam, Zakat ditunaikan untuk diberikan kepada golongan yang berhak menerimanya (asnaf).\n\nZakat berasal dari bentuk kata zaka yang berarti suci, baik, berkah, tumbuh, dan berkembang. Dinamakan zakat, karena di dalamnya terkandung harapan untuk memperoleh berkah, membersihkan jiwa dan memupuknya dengan berbagai kebaikan (Fikih Sunnah, Sayyid Sabiq: 5)</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
