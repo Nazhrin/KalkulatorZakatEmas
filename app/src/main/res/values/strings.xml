@@ -12,4 +12,10 @@
     <string name="kosong">Belum ada data</string>
     <string name="tentang_zakat">Tentang Zakat</string>
     <string name="riwayat">Riwayat</string>
+    <string name="berat_args_1_s">Berat Gram Emas nya adalah : %1$s Gram</string>
+    <string name="zakat_args">Zakat yang perlu dikeluarkan: Rp.%1$s</string>
+    <string name="bagikan">Berat Emas : %1$s gram\n Zakat yang harus dikeluarkan Rp.%1$s</string>
+    <string name="hapus">Hapus</string>
+    <string name="batal">Batal</string>
+    <string name="konfirmasi_hapus">Hapus semua histori?</string>
 </resources>

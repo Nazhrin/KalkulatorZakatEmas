@@ -12,7 +12,7 @@ import org.d3if0098.kalkulatorzakatemas.R
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class PengertianFragment : Fragment() {
+class PengertianFragment : Fragment(R.layout.fragment_pengertian) {
     // TODO: Rename and change types of parameters
 
     override fun onCreate(savedInstanceState: Bundle?) {

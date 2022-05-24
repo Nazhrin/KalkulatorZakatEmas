@@ -7,24 +7,24 @@ import androidx.room.RoomDatabase
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.internal.synchronized
 
-@Database(entities = [zakatentity::class],version = 1,exportSchema = false)
+@Database(entities = [ZakatEntity::class],version = 1,exportSchema = false)
 
-abstract class zakatDb : RoomDatabase(){
-    abstract val dao:zakatDao
+abstract class ZakatDb : RoomDatabase(){
+    abstract val dao: ZakatDao
 
     companion object{
         @Volatile
-        private var INSTANCE: zakatDb? = null
+        private var INSTANCE: ZakatDb? = null
 
         @OptIn(InternalCoroutinesApi::class)
-        fun getInstance(context: Context): zakatDb{
+        fun getInstance(context: Context): ZakatDb{
             synchronized(this){
                 var instance = INSTANCE
 
                 if (instance == null){
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        zakatDb::class.java,
+                        ZakatDb::class.java,
                         "zakat.db"
                     )
                         .fallbackToDestructiveMigration()

@@ -1,5 +1,7 @@
 package org.d3if0098.kalkulatorzakatemas.ui
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -9,19 +11,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import org.d3if0098.kalkulatorzakatemas.R
-import org.d3if0098.kalkulatorzakatemas.database.zakatDb
+import org.d3if0098.kalkulatorzakatemas.database.ZakatDb
 import org.d3if0098.kalkulatorzakatemas.databinding.FragmentHitungBinding
 import org.d3if0098.kalkulatorzakatemas.ui.hitung.HitungViewModel
 import org.d3if0098.kalkulatorzakatemas.ui.hitung.ZakatViewModelFactory
-import java.text.NumberFormat
-import java.util.*
 
 class HitungFragment : Fragment() {
     private lateinit var binding: FragmentHitungBinding
 
 
     private val viewModel:HitungViewModel by lazy {
-        val db = zakatDb.getInstance(requireContext())
+        val db = ZakatDb.getInstance(requireContext())
         val factory = ZakatViewModelFactory(db.dao)
         ViewModelProvider(this,factory)[HitungViewModel::class.java]
     }
@@ -42,30 +42,23 @@ class HitungFragment : Fragment() {
         return binding.root
 //        return inflater.inflate(R.layout.fragment_hitung, container, false)
     }
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        super.onCreateOptionsMenu(menu, inflater)
-//        inflater.inflate(R.menu.opsi_menu, menu)
-//    }
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when(item.itemId){
-//            R.id.menu_histori ->{
-//                findNavController().navigate(
-//                    R.id.action_hitungFragment_to_riwayatFragment
-//                )
-//                return true
-//            }
-//            R.id.menu_histori->{
-//                findNavController().navigate(
-//                    R.id.action_hitungFragment_to_pengertianFragment)
-//                return true
-//            }
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.opsi_menu, menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_pengertian) {
+            findNavController().navigate(
+                R.id.action_hitungFragment_to_pengertianFragment)
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.hitung.setOnClickListener {
+            validasi()
             viewModel.hitungZakat(binding.beratemasInput.text.toString())
         }
         viewModel.getHasilZakat.observe(viewLifecycleOwner){
@@ -75,10 +68,38 @@ class HitungFragment : Fragment() {
         }
         viewModel.data.observe(viewLifecycleOwner,{
             if(it == null)return@observe
-            Log.d("HitungFragment","Data Tersimpan. ID = ${it.id}")
         })
         binding.buttonRiwayat.setOnClickListener {
             findNavController().navigate(R.id.action_hitungFragment_to_riwayatFragment)
         }
+        binding.reset.setOnClickListener { reset() }
+        binding.buttonBagikan.setOnClickListener { bagiData() }
+
+
     }
+    @SuppressLint("StringFormatMatches")
+    private fun bagiData(){
+        val messsage = getString(R.string.bagikan,
+        binding.beratemasInput.text,
+        binding.hasil.text
+        )
+        val bagiIntent = Intent(Intent.ACTION_SEND)
+        bagiIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, messsage)
+        if (bagiIntent.resolveActivity(
+                requireActivity().packageManager) != null) {
+            startActivity(bagiIntent)
+        }
+    }
+    private fun validasi(){
+        if(TextUtils.isEmpty(binding.beratemasInput.text)){
+            Toast.makeText(requireActivity(),R.string.validasi_berat, Toast.LENGTH_LONG).show()
+            return
+        }
+
+    }
+    private fun reset(){
+        binding.beratemasInput.setText("")
+        binding.hasil.setText("Jumlah rupiah yang harus dikeluarkan adalah : ")
+    }
+
 }

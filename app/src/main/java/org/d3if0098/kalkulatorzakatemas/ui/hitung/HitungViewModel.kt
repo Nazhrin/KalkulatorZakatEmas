@@ -1,10 +1,6 @@
 package org.d3if0098.kalkulatorzakatemas.ui.hitung
 
-import android.annotation.SuppressLint
-import android.os.Bundle
-import android.provider.Settings.Global.getString
 import android.text.TextUtils
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,23 +10,22 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.d3if0098.kalkulatorzakatemas.R
-import org.d3if0098.kalkulatorzakatemas.database.zakatDao
-import org.d3if0098.kalkulatorzakatemas.database.zakatDb
-import org.d3if0098.kalkulatorzakatemas.database.zakatentity
-import org.d3if0098.kalkulatorzakatemas.databinding.ActivityMainBinding
+import org.d3if0098.kalkulatorzakatemas.database.ZakatDao
+import org.d3if0098.kalkulatorzakatemas.database.ZakatEntity
 import java.text.NumberFormat
 import java.util.*
 
-class HitungViewModel(private val db: zakatDao) : ViewModel() {
+class HitungViewModel(private val db: ZakatDao) : ViewModel() {
 
     private var hasilZakat = MutableLiveData<String>()
     val getHasilZakat: LiveData<String> get() = (hasilZakat)
 
-    val data = db.getLastZakat()
+    val data = db.getZakat()
+
     fun riwayat(uang:String,berat:String){
         viewModelScope.launch{
             withContext(Dispatchers.IO){
-                val dataZakat = zakatentity(
+                val dataZakat = ZakatEntity(
                     uang = uang,
                     berat = berat
                 )
@@ -52,7 +47,7 @@ class HitungViewModel(private val db: zakatDao) : ViewModel() {
 
         viewModelScope.launch{
             withContext(Dispatchers.IO){
-                val dataZakat = zakatentity(
+                val dataZakat = ZakatEntity(
                     uang = formatRupiah.format(jumlahZakat).toString(),
                     berat = berat
                 )

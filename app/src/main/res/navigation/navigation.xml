@@ -23,7 +23,7 @@
         tools:layout="@layout/fragment_pengertian" />
     <fragment
         android:id="@+id/riwayatFragment"
-        android:name="org.d3if0098.kalkulatorzakatemas.ui.RiwayatFragment"
+        android:name="org.d3if0098.kalkulatorzakatemas.ui.riwayat.RiwayatFragment"
         android:label="fragment_riwayat"
         tools:layout="@layout/fragment_riwayat" />
 </navigation>

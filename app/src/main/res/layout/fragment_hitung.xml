@@ -71,10 +71,9 @@
             android:id="@+id/hitung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:text="@string/hitung"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+            app:layout_constraintEnd_toStartOf="@id/reset"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
         <Button
@@ -82,9 +81,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/reset"
-            app:layout_constraintEnd_toEndOf="@+id/hitung"
-            app:layout_constraintStart_toStartOf="@+id/hitung"
-            app:layout_constraintTop_toBottomOf="@+id/hitung" />
+            app:layout_constraintEnd_toStartOf="@id/buttonRiwayat"
+            app:layout_constraintStart_toEndOf="@id/hitung"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
         <TextView
             android:id="@+id/hasil"
@@ -92,15 +91,25 @@
             android:layout_height="wrap_content"
             android:text="@string/hasilZakat1"
             android:textSize="15sp"
+            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonRiwayat" />
+            app:layout_constraintTop_toBottomOf="@id/buttonBagikan"/>
 
         <Button
             android:id="@+id/buttonRiwayat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/riwayat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/reset"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+        <Button
+            android:id="@+id/buttonBagikan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bagikan"
             app:layout_constraintEnd_toEndOf="@+id/reset"
             app:layout_constraintStart_toStartOf="@+id/reset"
             app:layout_constraintTop_toBottomOf="@+id/reset" />
