@@ -6,7 +6,7 @@
     app:startDestination="@id/hitungFragment">
     <fragment
         android:id="@+id/hitungFragment"
-        android:name="org.d3if0098.kalkulatorzakatemas.HitungFragment"
+        android:name="org.d3if0098.kalkulatorzakatemas.ui.HitungFragment"
         android:label="fragment_hitung"
         tools:layout="@layout/fragment_hitung" >
         <action
@@ -18,12 +18,12 @@
     </fragment>
     <fragment
         android:id="@+id/pengertianFragment"
-        android:name="org.d3if0098.kalkulatorzakatemas.PengertianFragment"
+        android:name="org.d3if0098.kalkulatorzakatemas.ui.PengertianFragment"
         android:label="fragment_pengertian"
         tools:layout="@layout/fragment_pengertian" />
     <fragment
         android:id="@+id/riwayatFragment"
-        android:name="org.d3if0098.kalkulatorzakatemas.RiwayatFragment"
+        android:name="org.d3if0098.kalkulatorzakatemas.ui.RiwayatFragment"
         android:label="fragment_riwayat"
         tools:layout="@layout/fragment_riwayat" />
 </navigation>
