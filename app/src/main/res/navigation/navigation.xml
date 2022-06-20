@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_hitungFragment_to_riwayatFragment"
             app:destination="@id/riwayatFragment" />
+        <action
+            android:id="@+id/action_hitungFragment_to_orangFragment"
+            app:destination="@id/orangFragment" />
     </fragment>
     <fragment
         android:id="@+id/pengertianFragment"
@@ -26,4 +29,9 @@
         android:name="org.d3if0098.kalkulatorzakatemas.ui.riwayat.RiwayatFragment"
         android:label="fragment_riwayat"
         tools:layout="@layout/fragment_riwayat" />
+    <fragment
+        android:id="@+id/orangFragment"
+        android:name="org.d3if0098.kalkulatorzakatemas.ui.orang.OrangFragment"
+        android:label="fragment_orang"
+        tools:layout="@layout/fragment_orang" />
 </navigation>

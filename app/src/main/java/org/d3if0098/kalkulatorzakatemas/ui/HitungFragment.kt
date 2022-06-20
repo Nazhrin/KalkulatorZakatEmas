@@ -52,6 +52,11 @@ class HitungFragment : Fragment() {
                 R.id.action_hitungFragment_to_pengertianFragment)
             return true
         }
+        if(item.itemId == R.id.menu_orang){
+            findNavController().navigate(
+                R.id.action_hitungFragment_to_orangFragment)
+            return true
+        }
         return super.onOptionsItemSelected(item)
     }
 

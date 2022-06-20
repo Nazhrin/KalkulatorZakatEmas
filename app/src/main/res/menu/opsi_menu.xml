@@ -5,4 +5,8 @@
     android:id="@+id/menu_pengertian"
     android:title="@string/tentang_zakat"
     app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_orang"
+        android:title="@string/tentang_orang"
+        app:showAsAction="never"/>
 </menu>
