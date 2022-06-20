@@ -1,17 +1,22 @@
 package org.d3if0098.kalkulatorzakatemas.ui.hitung
 
+import android.app.Application
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.d3if0098.kalkulatorzakatemas.R
 import org.d3if0098.kalkulatorzakatemas.database.ZakatDao
 import org.d3if0098.kalkulatorzakatemas.database.ZakatEntity
+import org.d3if0098.kalkulatorzakatemas.network.UpdateWorker
 import java.text.NumberFormat
 import java.util.*
 
@@ -56,4 +61,14 @@ class HitungViewModel(private val db: ZakatDao) : ViewModel() {
         }
         hasilZakat.value = formatRupiah.format(jumlahZakat).toString()
     }
+    fun scheduleUpdater(app: Application) {
+        val request = OneTimeWorkRequestBuilder<UpdateWorker>()
+            .build()
+        WorkManager.getInstance(app).enqueueUniqueWork(
+            "updater",
+            ExistingWorkPolicy.REPLACE,
+            request
+        )
+    }
+
 }

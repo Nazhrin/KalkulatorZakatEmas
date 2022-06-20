@@ -48,6 +48,7 @@ class OrangFragment : Fragment() {
             updateProgress(it)
         })
     }
+
     private fun updateProgress(status: ApiStatus){
         when(status){
             ApiStatus.LOADING -> {

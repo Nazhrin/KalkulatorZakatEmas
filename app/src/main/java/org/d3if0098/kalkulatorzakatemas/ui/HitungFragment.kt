@@ -79,6 +79,7 @@ class HitungFragment : Fragment() {
         }
         binding.reset.setOnClickListener { reset() }
         binding.buttonBagikan.setOnClickListener { bagiData() }
+        viewModel.scheduleUpdater(requireActivity().application)
 
 
     }
