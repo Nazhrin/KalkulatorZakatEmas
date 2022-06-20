@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import org.d3if0098.kalkulatorzakatemas.R
 import org.d3if0098.kalkulatorzakatemas.databinding.FragmentOrang2Binding
+import org.d3if0098.kalkulatorzakatemas.network.ApiStatus
 
 class OrangFragment : Fragment() {
 
@@ -43,5 +44,22 @@ class OrangFragment : Fragment() {
         viewModel.getData().observe(viewLifecycleOwner, {
             myAdapter.updateData(it);
         })
+        viewModel.getStatus().observe(viewLifecycleOwner, {
+            updateProgress(it)
+        })
+    }
+    private fun updateProgress(status: ApiStatus){
+        when(status){
+            ApiStatus.LOADING -> {
+                binding.progressBar.visibility = View.VISIBLE
+            }
+            ApiStatus.SUCCESS -> {
+                binding.progressBar.visibility = View.GONE
+            }
+            ApiStatus.FAILED -> {
+                binding.progressBar.visibility = View.GONE
+                binding.networkError.visibility = View.VISIBLE
+            }
+        }
     }
 }

@@ -8,6 +8,8 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
 private const val BASE_URL = "https://raw.githubusercontent.com/Nazhrin/dataKalkulatorZakat/main/"
+private const val BASE_URLGAMBAR = "https://i.ibb.co/"
+
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -19,7 +21,7 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface ZakatApiService {
-        @GET("dataOrang.json")
+        @GET("dataOrangZakat.json")
         suspend fun getZakat(): List<Orang>
 }
 object ZakatApi{
@@ -27,6 +29,8 @@ object ZakatApi{
         retrofit.create(ZakatApiService::class.java)
     }
     fun getZakatUrl(nama: String): String{
-        return "$BASE_URL$nama.jpg"
+        return "$BASE_URLGAMBAR$nama"
     }
 }
+enum class ApiStatus { LOADING, SUCCESS, FAILED }
+

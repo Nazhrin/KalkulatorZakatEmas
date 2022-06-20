@@ -21,7 +21,6 @@
     <string name="title_orang">Orang-orang yang harus mengeluarkan zakat</string>
     <string name="islam">Islam</string>
     <string name="tentang_orang">Syarat orang yang mengeluarkan zakat</string>
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="koneksi_hilang">Koneksi Error</string>
 
 </resources>
