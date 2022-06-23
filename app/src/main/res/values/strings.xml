@@ -22,5 +22,10 @@
     <string name="islam">Islam</string>
     <string name="tentang_orang">Syarat orang yang mengeluarkan zakat</string>
     <string name="koneksi_hilang">Koneksi Error</string>
+    <string name="channel_name">Updater</string>
+    <string name="channel_desc">Update Data</string>
+
+    <string name="notif_title">Ahlan Wa Sahlan</string>
+    <string name="notif_text">Selamat datang di Aplikasi Kalkulator Zakat Emas</string>
 
 </resources>

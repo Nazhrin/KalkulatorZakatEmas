@@ -1,10 +1,9 @@
-package org.d3if0098.kalkulatorzakatemas.ui
+package org.d3if0098.kalkulatorzakatemas.ui.hitung
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -13,8 +12,6 @@ import androidx.navigation.fragment.findNavController
 import org.d3if0098.kalkulatorzakatemas.R
 import org.d3if0098.kalkulatorzakatemas.database.ZakatDb
 import org.d3if0098.kalkulatorzakatemas.databinding.FragmentHitungBinding
-import org.d3if0098.kalkulatorzakatemas.ui.hitung.HitungViewModel
-import org.d3if0098.kalkulatorzakatemas.ui.hitung.ZakatViewModelFactory
 
 class HitungFragment : Fragment() {
     private lateinit var binding: FragmentHitungBinding

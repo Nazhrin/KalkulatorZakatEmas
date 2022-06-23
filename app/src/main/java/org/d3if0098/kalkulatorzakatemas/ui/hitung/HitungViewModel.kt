@@ -17,6 +17,7 @@ import org.d3if0098.kalkulatorzakatemas.R
 import org.d3if0098.kalkulatorzakatemas.database.ZakatDao
 import org.d3if0098.kalkulatorzakatemas.database.ZakatEntity
 import org.d3if0098.kalkulatorzakatemas.network.UpdateWorker
+import org.d3if0098.kalkulatorzakatemas.ui.MainActivity
 import java.text.NumberFormat
 import java.util.*
 
@@ -65,7 +66,7 @@ class HitungViewModel(private val db: ZakatDao) : ViewModel() {
         val request = OneTimeWorkRequestBuilder<UpdateWorker>()
             .build()
         WorkManager.getInstance(app).enqueueUniqueWork(
-            "updater",
+            MainActivity.CHANNEL_ID,
             ExistingWorkPolicy.REPLACE,
             request
         )
